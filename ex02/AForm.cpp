@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:58:44 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 19:40:50 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/10 00:21:45 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,16 @@ std::string	AForm::getGrade4SignAsString( void ) const
 	return std::to_string( this->getGrade4Sign() );
 }
 
+bool	AForm::isSigned( void ) const
+{
+	return this->_signed;
+}
+
 bool	AForm::beSigned( Bureaucrat &b )
 {
 	if ( this->_grade_4sign > b.getGrade() )
 		return true;
 	else
-		//return false;
 		throw AForm::GradeTooHighException();
 }
 
@@ -83,4 +87,9 @@ const char* AForm::GradeTooHighException::what( void ) const throw()
 const char* AForm::GradeTooLowException::what( void ) const throw()
 {
 	return "AForm grade too low";
+}
+
+const char* AForm::FormNotSignedException::what( void ) const throw()
+{
+	return "AForm signature is missing";
 }

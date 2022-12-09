@@ -4,7 +4,7 @@ VERBOSE = 0
 CPP_FLAGS = -Wextra -Werror -Wall --std=c++98 -fsanitize=address
 #CPP_FLAGS = -Wextra -Werror -Wall --std=c++98
 
-CPP_FILES = main.cpp Bureaucrat.cpp AForm.cpp
+CPP_FILES = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
 
 O_FILES = $(CPP_FILES:%cpp=%o)
 
