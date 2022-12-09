@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:10:29 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 18:07:13 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/09 18:58:42 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@
 #include "Bureaucrat.hpp"
 
 class	Bureaucrat;
-class	Form
+class	AForm
 {
 	private:
 		std::string	const	_name;
 		size_t	const 		_grade;
 		bool				_signed;
 	public:
-		Form( std::string name, size_t grade );
-		Form( const Form &src );
-		Form &operator=( const Form &src );
-		~Form();
+		AForm( std::string name, size_t grade );
+		AForm( const AForm &src );
+		AForm &operator=( const AForm &src );
+		~AForm();
 		std::string	getName( void ) const;
 		size_t		getGrade( void ) const;
 		std::string	getGradeAsString( void ) const;
@@ -51,6 +51,6 @@ class	Form
 /*
  * overload of the « operator
  */
-std::ostream & operator<<( std::ostream &ostream, Form const &f);
+std::ostream & operator<<( std::ostream &ostream, AForm const &f);
 
 #endif

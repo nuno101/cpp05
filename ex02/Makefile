@@ -1,10 +1,10 @@
-NAME = bureaucrats_forms 
+NAME = bureaucrats_form_28B
 VERBOSE = 0
 
 CPP_FLAGS = -Wextra -Werror -Wall --std=c++98 -fsanitize=address
 #CPP_FLAGS = -Wextra -Werror -Wall --std=c++98
 
-CPP_FILES = main.cpp Bureaucrat.cpp Form.cpp
+CPP_FILES = main.cpp Bureaucrat.cpp AForm.cpp
 
 O_FILES = $(CPP_FILES:%cpp=%o)
 
