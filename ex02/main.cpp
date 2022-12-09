@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:52:53 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 18:54:54 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/09 19:44:25 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ int	main( void )
 		// check grade still within boundaries
 		std::cout << bob2;
 	}
-	AForm form("D-form", 100);
+	AForm form("D-form", 100, 88);
 	std::cout << form << std::endl;
 	Bureaucrat bill("Bill", 100);
 	std::cout << bill;
-	bill.signForm( form );
+	//bill.signForm( form );
 	bill.incrementGrade();
 	std::cout << bill;
-	bill.signForm( form );
+	//bill.signForm( form );
 
 	return 0;
 }

@@ -6,12 +6,12 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:10:29 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 18:58:42 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/09 19:46:19 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 #include <iostream>
 #include "Bureaucrat.hpp"
@@ -21,19 +21,20 @@ class	AForm
 {
 	private:
 		std::string	const	_name;
-		size_t	const 		_grade;
+		size_t	const 		_grade_4sign;
+		size_t	const 		_grade_4exec;
 		bool				_signed;
 	public:
-		AForm( std::string name, size_t grade );
+		AForm( std::string name, size_t grade_4sign, size_t grade_4exec);
 		AForm( const AForm &src );
 		AForm &operator=( const AForm &src );
 		~AForm();
 		std::string	getName( void ) const;
-		size_t		getGrade( void ) const;
-		std::string	getGradeAsString( void ) const;
-		size_t		incrementGrade ( void );
-		size_t		decrementGrade ( void );
-		bool		beSigned( Bureaucrat &b );
+		size_t		getGrade4Sign( void ) const;
+		size_t		getGrade4Exec( void ) const;
+		std::string	getGrade4SignAsString( void ) const;
+		std::string	getGrade4ExecAsString( void ) const;
+		virtual bool		beSigned( Bureaucrat &b ) = 0
 		// Class Exceptions
 		class   GradeTooHighException : public std::exception
 		{
