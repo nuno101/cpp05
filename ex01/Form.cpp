@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:58:44 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 17:35:35 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/09 18:11:46 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,27 @@ std::string	Form::getGradeAsString( void ) const
 	return std::to_string( this->getGrade() );
 }
 
-
-std::ostream & operator<<( std::ostream &ostream, Form const &b)
+bool	Form::beSigned( Bureaucrat &b )
 {
-	return ostream << b.getName() << " bureaucrat grade " << b.getGradeAsString() << "\n";
+	if ( this->_grade > b.getGrade() )
+		return true;
+	else
+		//return false;
+		throw Form::GradeTooHighException();
+}
+
+
+std::ostream & operator<<( std::ostream &ostream, Form const &f)
+{
+	return ostream << f.getName() << " requires grade " << f.getGradeAsString() << " for signature\n";
 }
 
 const char* Form::GradeTooHighException::what( void ) const throw()
 {
-	return "Grade too high";
+	return "Form grade too high";
 }
 
 const char* Form::GradeTooLowException::what( void ) const throw()
 {
-	return "Grade too low";
+	return "Form grade too low";
 }

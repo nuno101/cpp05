@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:58:44 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 17:05:02 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/09 18:16:46 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,23 @@ size_t	Bureaucrat::decrementGrade( void )
 size_t	Bureaucrat::getGrade( void ) const
 {
 	return this->_grade;
+}
+
+bool	Bureaucrat::signForm( Form f )
+{
+	std::cout << this->getName() << " to sign " << f << std::endl;
+	try
+	{
+		f.beSigned( *this );
+		std::cout << this << " signed " << f.getName() << std::endl;
+		return true;
+	}
+	catch ( Form::GradeTooHighException & e )
+	{
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+		std::cout << this->getName() << " couldn't sign " << f.getName() << " because his grade is not suficient to sign the form!\n";
+	}
+	return false;
 }
 
 std::string	Bureaucrat::getGradeAsString( void ) const

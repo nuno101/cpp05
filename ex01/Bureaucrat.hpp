@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:39:20 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 17:31:07 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/09 17:44:30 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 #include <iostream>
 #include "Form.hpp" 
 
-class Bureaucrat
+class	Form;
+
+class	Bureaucrat
 {
 	private:
 		std::string	const	_name;
@@ -31,7 +33,7 @@ class Bureaucrat
 		std::string	getGradeAsString( void ) const;
 		size_t	incrementGrade ( void );
 		size_t	decrementGrade ( void );
-		//bool	signForm( Form f );
+		bool	signForm( Form f );
 		// Class Exceptions
 		class	GradeTooHighException : public std::exception
 		{
