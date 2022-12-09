@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:58:44 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 16:13:24 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/09 17:05:02 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ Bureaucrat::Bureaucrat( std::string name, size_t grade ) : _name(name), _grade(g
 Bureaucrat::~Bureaucrat( void )
 {
 	std::cout << this->_name << " (Bureaucrat) destructor called." << std::endl;
-	//std::cout << " (Bureaucrat) destructor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat &src ) : _name(src._name), _grade(src._grade)
@@ -31,9 +30,8 @@ Bureaucrat::Bureaucrat( const Bureaucrat &src ) : _name(src._name), _grade(src._
 Bureaucrat & Bureaucrat::operator=( const Bureaucrat &src )
 {
 	//this->_name = src.getName();
-	//this->_grade = src._grade;
-	( void ) src;
-	std::cout << "Bureaucrat class const values can't be re-assigned\n";
+	this->_grade = src._grade;
+	std::cout << "Bureaucrat class partially assigned. const name can't be re-assigned\n";
 	return *this;
 }
 
@@ -44,14 +42,21 @@ std::string	Bureaucrat::getName( void ) const
 
 size_t	Bureaucrat::incrementGrade( void )
 {
-	this->_grade--;
+	std::cout << "incrementGrade() called on: " << *this ;
+	if ( this->_grade - 1 > 0 )
+		this->_grade--;
+	else
+		throw GradeTooHighException(); 
 	return this->_grade;
 }
 
 size_t	Bureaucrat::decrementGrade( void )
 {
-	//std::cout << this << std::endl;
-	this->_grade++;
+	std::cout << "decrementGrade() called on: " << *this << std::endl;
+	if ( this->_grade + 1 < 150 )
+		this->_grade++;
+	else
+		throw GradeTooLowException(); 
 	return this->_grade;
 }
 
@@ -62,13 +67,13 @@ size_t	Bureaucrat::getGrade( void ) const
 
 std::string	Bureaucrat::getGradeAsString( void ) const
 {
-	return std::to_string(this->getGrade());
+	return std::to_string( this->getGrade() );
 }
 
 
 std::ostream & operator<<( std::ostream &ostream, Bureaucrat const &b)
 {
-	return ostream << b.getName() << " bureaucrat grade " << b.getGradeAsString() << ".\n";
+	return ostream << b.getName() << " bureaucrat grade " << b.getGradeAsString() << "\n";
 }
 
 const char* Bureaucrat::GradeTooHighException::what( void ) const throw()
