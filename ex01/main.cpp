@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:52:53 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 18:16:13 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/09 18:49:05 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	main( void )
 		std::cout << bob2;
 	}
 	Form form("D-form", 100);
-	std::cout << form;
-	Bureaucrat bill("Bill", 101);
+	std::cout << form << std::endl;
+	Bureaucrat bill("Bill", 100);
 	std::cout << bill;
 	bill.signForm( form );
 	bill.incrementGrade();

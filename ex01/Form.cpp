@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:58:44 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 18:11:46 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/09 18:24:03 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ bool	Form::beSigned( Bureaucrat &b )
 
 std::ostream & operator<<( std::ostream &ostream, Form const &f)
 {
-	return ostream << f.getName() << " requires grade " << f.getGradeAsString() << " for signature\n";
+	return ostream << f.getName() << " requires grade >" << f.getGradeAsString() << " for signature";
 }
 
 const char* Form::GradeTooHighException::what( void ) const throw()
