@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:10:29 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 18:07:13 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/09 19:16:49 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class	Form
 {
 	private:
 		std::string	const	_name;
-		size_t	const 		_grade;
+		size_t	const 		_grade_4sign;
 		bool				_signed;
 	public:
 		Form( std::string name, size_t grade );
@@ -29,8 +29,8 @@ class	Form
 		Form &operator=( const Form &src );
 		~Form();
 		std::string	getName( void ) const;
-		size_t		getGrade( void ) const;
-		std::string	getGradeAsString( void ) const;
+		size_t		getGrade4Sign( void ) const;
+		std::string	getGrade4SignAsString( void ) const;
 		size_t		incrementGrade ( void );
 		size_t		decrementGrade ( void );
 		bool		beSigned( Bureaucrat &b );
