@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:58:44 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 18:57:18 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/10 10:53:45 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,11 @@ size_t	Bureaucrat::getGrade( void ) const
 	return this->_grade;
 }
 
+std::string	Bureaucrat::getGradeAsString( void ) const
+{
+	return std::to_string( this->getGrade() );
+}
+
 bool	Bureaucrat::signForm( AForm &f )
 {
 	std::cout << this->getName() << " to sign " << f << std::endl;
@@ -82,11 +87,22 @@ bool	Bureaucrat::signForm( AForm &f )
 	return false;
 }
 
-std::string	Bureaucrat::getGradeAsString( void ) const
+void	Bureaucrat::executeForm(AForm const &f )
 {
-	return std::to_string( this->getGrade() );
+	std::cout << this->getName() << " to execute " << f  << std::endl;
+	try
+	{
+		f.execute( *this );
+		std::cout << this->getName() << " executed " << f.getName() << std::endl;
+		//return true;
+	}
+	catch ( AForm::GradeTooHighException & e )
+	{
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+		std::cout << this->getName() << " couldn't sign " << f.getName() << " because his grade is not suficient to sign the form!\n";
+	}
+	//return false;
 }
-
 
 std::ostream & operator<<( std::ostream &ostream, Bureaucrat const &b)
 {

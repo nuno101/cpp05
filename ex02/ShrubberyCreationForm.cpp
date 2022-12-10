@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 21:27:39 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/10 08:36:14 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/10 10:57:56 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,10 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	else if ( executor.getGrade() >= this->getGrade4Exec() )
 		throw GradeTooHighException();
 	else
-		std::cout << "ASCII trees... " << std::endl;
+		this->_print_to( _target );
+}
+
+void    ShrubberyCreationForm::_print_to( std::string const filename ) const
+{
+		std::cout << "ASCII trees... " << filename << std::endl;
 }

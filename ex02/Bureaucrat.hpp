@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:39:20 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 18:56:55 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/10 10:53:21 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class	Bureaucrat
 		size_t	incrementGrade ( void );
 		size_t	decrementGrade ( void );
 		bool	signForm( AForm &f );
+		void	executeForm(AForm const &f	);
 		// Class Exceptions
 		class	GradeTooHighException : public std::exception
 		{

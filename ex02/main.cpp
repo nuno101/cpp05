@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:52:53 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/10 08:50:57 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/10 10:55:56 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,10 @@ int	main( void )
 		bill.incrementGrade();
 	}
 	std::cout << bill;
+	// two ways to execute the form as required
+	// form can be executed multiple times
 	s_form.execute( bill );
+	bill.executeForm( s_form );
 
 	return 0;
 }
