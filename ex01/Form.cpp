@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:58:44 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 19:31:11 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/10 08:52:01 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ std::string	Form::getGrade4SignAsString( void ) const
 bool	Form::beSigned( Bureaucrat &b )
 {
 	if ( this->_grade_4sign > b.getGrade() )
+	{
+		this->_signed = true;
 		return true;
+	}
 	else
 		//return false;
 		throw Form::GradeTooHighException();

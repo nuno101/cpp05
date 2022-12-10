@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:58:44 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/10 00:21:45 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/10 08:46:58 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,10 @@ bool	AForm::isSigned( void ) const
 bool	AForm::beSigned( Bureaucrat &b )
 {
 	if ( this->_grade_4sign > b.getGrade() )
+	{
+		this->_signed = true;
 		return true;
+	}
 	else
 		throw AForm::GradeTooHighException();
 }
@@ -76,7 +79,8 @@ std::string	AForm::getGrade4ExecAsString( void ) const
 
 std::ostream & operator<<( std::ostream &ostream, AForm const &f)
 {
-	return ostream << f.getName() << " requires grade for sign >" << f.getGrade4SignAsString() << " for signature";
+	std::string	is_signed = f.isSigned() ? " (signed)" : " (unsigned)";
+	return ostream << f.getName() << is_signed << " requires grade for sign >" << f.getGrade4SignAsString() << " for signature and " << f.getGrade4ExecAsString() << " for execution";
 }
 
 const char* AForm::GradeTooHighException::what( void ) const throw()

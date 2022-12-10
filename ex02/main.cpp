@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:52:53 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/10 00:27:39 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/10 08:50:57 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,16 @@ int	main( void )
 	{
 		s_form.execute( bill );
 	}
-	catch ( AForm::FormNotSignedException & e )
+	catch ( AForm::GradeTooHighException & e )
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
+	for(int i = 144; i > 44; i--) 
+	{
+		bill.incrementGrade();
+	}
+	std::cout << bill;
+	s_form.execute( bill );
 
 	return 0;
 }

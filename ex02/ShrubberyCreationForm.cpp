@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 21:27:39 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/10 00:42:50 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/10 08:36:14 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=( ShrubberyCreationForm 
 	std::cout << "ShrubberyCreationForm class assigned called but nothing to assign. const attributes can't be re-assigned\n";
 	return *this;
 }
-
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
