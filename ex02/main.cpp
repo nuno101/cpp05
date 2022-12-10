@@ -6,13 +6,16 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:52:53 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/10 10:55:56 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/10 21:19:21 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
 
 int	main( void )
 {
