@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 21:27:39 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/10 10:57:56 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/10 11:06:19 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,8 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 
 void    ShrubberyCreationForm::_print_to( std::string const filename ) const
 {
-		std::cout << "ASCII trees... " << filename << std::endl;
+	std::ofstream	out_file;
+	out_file.open ( filename, std::ios::out );
+	out_file << "ASCII trees... " << std::endl;
+	out_file.close();
 }
