@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 21:28:08 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/16 10:17:20 by nlouro           ###   ########.fr       */
+/*   Created: 2022/12/04 16:39:20 by nlouro            #+#    #+#             */
+/*   Updated: 2022/12/16 10:12:39 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
-class	RobotomyRequestForm: public AForm
+#include <iostream>
+#include "AForm.hpp" 
+
+class	AForm;
+
+class	Intern
 {
-	private:
-		std::string	const	_target;
 	public:
-		RobotomyRequestForm( std::string target );
-		RobotomyRequestForm( RobotomyRequestForm const &src );
-		RobotomyRequestForm &operator=( RobotomyRequestForm const &src );
-		~RobotomyRequestForm( void );
-		void	execute(Bureaucrat const &executor) const;
-
+		Intern();
+		Intern( const Intern &src );
+		Intern &operator=( const Intern &src );
+		~Intern();
+		AForm	*makeForm( std::string form_name, std::string form_target );
 };
+
+/*
+ * overload of the « operator 
+ */
+std::ostream & operator<<( std::ostream &ostream, Intern const &b);
+
+#endif
