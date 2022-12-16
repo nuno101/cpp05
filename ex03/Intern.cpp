@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:58:44 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/16 11:25:51 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/16 11:48:16 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,43 @@ std::string	Intern::getGradeAsString( void ) const
 	return "" ;
 }
 
-AForm	*Intern::makeForm( std::string name, std::string target )
+ssize_t	get_form_id( std::string form_name )
 {
-	std::string	form_names[] = [ "ShrubberyCreation", "RobotomyRequest", "PresidentialPardon" ];
+	std::string	form_names[] = [ "shrubbery creation", "robotomy request", "presidential pardon" ];
+
 	for ( int i = 0; i < 3; i++ )
 	{
-		if ( form == form_names[i] )
-		{
-			std::cout << "Intern creates form " << name << " with target " << target << std::endl;
-			//TODO
-			//return 
-		}
+		if ( form_name.compare( form_names[i] ))
+			return i ;
 	}
-	std::cout << "ERROR: Intern can not create form " << name << std::endl;
-	return NULL;
+	return -1 ;
+}
+
+AForm	*Intern::makeForm( std::string name, std::string target )
+{
+	AForm	*new_form;
+	size_t	form_id;
+
+	form_id = get_form_id( name );
+	switch ( form_id )
+	{
+		case 0:
+			new_form = new ShrubberyCreationForm( target );
+			std::cout << "Intern creates form for " << name << " with target " << target << std::endl;
+			break;
+		case 1:
+			new_form = new RobotomyRequestForm( target );
+			std::cout << "Intern creates form for " << name << " with target " << target << std::endl;
+			break;
+		case 2:
+			new_form = new PresidentialPardonForm( target );
+			std::cout << "Intern creates form for " << name << " with target " << target << std::endl;
+			break;
+		default:
+			new_form = NULL;
+			std::cout << "ERROR: Intern can not create form " << name << std::endl;
+	}
+	return new_form ;
 }
 
 std::ostream & operator<<( std::ostream &ostream, Intern const &b)
