@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:52:53 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/16 12:49:31 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/16 12:52:41 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main( void )
 		std::cout << bob2;
 	}
 	// ShrubberyCreationForm tests
-	if ( VERBOSE )
+	if ( true )
 	{
 		// AForm can't be instantiated as it's now an abstract class
 		//AForm form("D-form", 100, 88);
@@ -124,7 +124,7 @@ int	main( void )
 		bill.executeForm( s_form );
 	}
 	// PresidentialPardonForm tests
-	if ( true )
+	if ( VERBOSE )
 	{
 		PresidentialPardonForm s_form = PresidentialPardonForm( "home" );
 		std::cout << s_form << std::endl;
