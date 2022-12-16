@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:10:29 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/10 00:21:52 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/16 13:19:17 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class	AForm
 		AForm( std::string name, size_t grade_4sign, size_t grade_4exec);
 		AForm( const AForm &src );
 		AForm &operator=( const AForm &src );
-		~AForm();
+		virtual	~AForm();
 		std::string	getName( void ) const;
 		size_t		getGrade4Sign( void ) const;
 		size_t		getGrade4Exec( void ) const;

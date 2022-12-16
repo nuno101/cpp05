@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:58:44 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/16 11:48:16 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/16 13:34:58 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,32 +24,24 @@ Intern::~Intern( void )
 
 Intern::Intern( const Intern &src )
 {
+	*this = src;
 	std::cout << "Intern copied." << std::endl;
 }
 
 Intern & Intern::operator=( const Intern &src )
 {
+	(void) src;
 	std::cout << "Intern assigned.\n";
 	return *this;
 }
 
-std::string	Intern::getName( void ) const
-{
-	return "" ;
-}
-
-std::string	Intern::getGradeAsString( void ) const
-{
-	return "" ;
-}
-
 ssize_t	get_form_id( std::string form_name )
 {
-	std::string	form_names[] = [ "shrubbery creation", "robotomy request", "presidential pardon" ];
+	std::string	form_names[] = { "shrubbery creation", "robotomy request", "presidential pardon" };
 
 	for ( int i = 0; i < 3; i++ )
 	{
-		if ( form_name.compare( form_names[i] ))
+		if ( form_name.compare( form_names[i] ) == 0 )
 			return i ;
 	}
 	return -1 ;
@@ -84,6 +76,6 @@ AForm	*Intern::makeForm( std::string name, std::string target )
 
 std::ostream & operator<<( std::ostream &ostream, Intern const &b)
 {
+	(void) b;
 	return ostream << "Intern has no name nor grade\n";
 }
-

@@ -6,15 +6,12 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:52:53 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/16 12:52:02 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/16 13:31:54 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 
 int	main( void )
@@ -159,5 +156,29 @@ int	main( void )
 		std::cout << bill;
 		bill.executeForm( s_form );
 	}
+	Intern	iris;
+	std::cout << iris;
+	AForm *rrf;
+	// test RobotomyRequestForm
+	rrf = iris.makeForm("robotomy request", "Bender");
+	std::cout << *rrf;
+	delete rrf;
+	std::cout << "\n";
+
+	// test ShrubberyCreationForm
+	Intern	iris2;
+	AForm *scf;
+	scf = iris2.makeForm("shrubbery creation", "BenderB");
+	std::cout << *scf;
+	delete scf;
+	std::cout << "\n";
+
+	// test PresidentialPardonForm
+	Intern	iris3;
+	AForm *ppf;
+	ppf = iris3.makeForm("presidential pardon", "BenderC");
+	std::cout << *ppf;
+	delete ppf;
+
 	return 0;
 }
