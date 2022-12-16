@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 21:27:39 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/10 21:09:07 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/16 12:47:27 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
+	static int i = 0;
 	if ( !this->isSigned() )
 		throw FormNotSignedException();
 	else if ( executor.getGrade() >= this->getGrade4Exec() )
@@ -45,10 +46,10 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 	else
 	{
 		std::cout << "Some drilling noises..." << std::endl;
-		// TODO: informs that <target> has been robotomized successfully 50% of the time
-		if ( true )
+		if ( i % 2 )
 			std::cout << this->_target << " has been robotomized successfully." << std::endl;
 		else
 			std::cout << this->_target << " robotomy failed." << std::endl;
+		i++;
 	}
 }

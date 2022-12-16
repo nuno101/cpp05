@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:52:53 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/16 11:55:05 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/16 12:49:31 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main( void )
 		std::cout << bob2;
 	}
 	// ShrubberyCreationForm tests
-	if ( true )
+	if ( VERBOSE )
 	{
 		// AForm can't be instantiated as it's now an abstract class
 		//AForm form("D-form", 100, 88);
@@ -119,9 +119,12 @@ int	main( void )
 		}
 		std::cout << bill;
 		bill.executeForm( s_form );
+		bill.executeForm( s_form );
+		bill.executeForm( s_form );
+		bill.executeForm( s_form );
 	}
 	// PresidentialPardonForm tests
-	if ( VERBOSE )
+	if ( true )
 	{
 		PresidentialPardonForm s_form = PresidentialPardonForm( "home" );
 		std::cout << s_form << std::endl;
@@ -149,7 +152,7 @@ int	main( void )
 		{
 			std::cerr << "Exception caught: " << e.what() << std::endl;
 		}
-		for(int i = 24; i > 5; i--) 
+		for(int i = 24; i >= 5; i--) 
 		{
 			bill.incrementGrade();
 		}
