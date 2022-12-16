@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:39:20 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 17:23:20 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/16 12:02:56 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ class Bureaucrat
 		Bureaucrat &operator=( const Bureaucrat &src );
 		~Bureaucrat();
 		std::string	getName( void ) const;
-		size_t	getGrade( void ) const;
+		size_t		getGrade( void ) const;
 		std::string	getGradeAsString( void ) const;
-		size_t	incrementGrade ( void );
-		size_t	decrementGrade ( void );
+		size_t		incrementGrade ( void );
+		size_t		decrementGrade ( void );
+
 		// Class Exceptions
 		class	GradeTooHighException : public std::exception
 		{

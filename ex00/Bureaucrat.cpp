@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:58:44 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 17:05:02 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/16 12:00:53 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 Bureaucrat::Bureaucrat( std::string name, size_t grade ) : _name(name), _grade(grade)
 {
+	if ( _grade > 150 )
+		throw GradeTooLowException(); 
+	else if ( _grade < 1 )
+		throw GradeTooHighException(); 
 	std::cout << this->_name << " (Bureaucrat) created with grade " << this->_grade << std::endl;
 }
 
