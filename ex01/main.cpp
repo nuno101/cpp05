@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:52:53 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 19:36:13 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/16 12:10:09 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ int	main( void )
 	std::cout << bill;
 	bill.signForm( form );
 	std::cout << "Form exec grade is: " << form.getGrade4ExecAsString() <<std::endl;
-
 	return 0;
 }

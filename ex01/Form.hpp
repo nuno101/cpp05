@@ -6,7 +6,7 @@
 /*   By: nlouro <nlouro@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:10:29 by nlouro            #+#    #+#             */
-/*   Updated: 2022/12/09 19:22:41 by nlouro           ###   ########.fr       */
+/*   Updated: 2022/12/16 12:09:02 by nlouro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class	Form
 		std::string	getGrade4SignAsString( void ) const;
 		std::string	getGrade4ExecAsString( void ) const;
 		bool		beSigned( Bureaucrat &b );
+
 		// Class Exceptions
 		class   GradeTooHighException : public std::exception
 		{
@@ -46,7 +47,6 @@ class	Form
 			public:
 				virtual const char *what() const throw();
 		};
-
 };
 
 /*
